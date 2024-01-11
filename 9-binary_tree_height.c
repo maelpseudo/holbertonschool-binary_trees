@@ -8,14 +8,14 @@
  * Return: height of the node, 0 if tree is NULL
 */
 
-size_t binary_tree_height(const binary_tree_t *tree)
+int tree_height(Node* root)
 {
-	if (tree == NULL)
+	if (root == NULL)
 		return 0;
 	else
 	{
-		size_t left_height = binary_tree_height(tree->left);
-		size_t right_height = binary_tree_height(tree->right);
-		return (left_height > right_height) ? left_height + 1 : right_height + 1;:
+		left_height = tree_height(root->left);
+		right_height = tree_height(root->right);
+		return max(left_height, right_height) + 1;
 	}
 }
